@@ -1,5 +1,7 @@
 package br.unipar.programacaointernet.vendaapi.service;
 
+import br.unipar.programacaointernet.vendaapi.dto.ProdutoDescricaoValorDTO;
+import br.unipar.programacaointernet.vendaapi.mapper.ProdutoMapper;
 import br.unipar.programacaointernet.vendaapi.model.Produto;
 import br.unipar.programacaointernet.vendaapi.repository.ProdutoRepository;
 import jakarta.ejb.Stateless;
@@ -31,5 +33,10 @@ public class ProdutoService {
 
     public void excluir(Produto produto) throws Exception {
         produtoRepository.excluir(produto);
+    }
+
+    public List<ProdutoDescricaoValorDTO> listarProdutoDescricao() {
+        List<Produto> listProduto = produtoRepository.listar();
+        return ProdutoMapper.toDTO(listProduto);
     }
 }

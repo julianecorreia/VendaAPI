@@ -19,6 +19,16 @@ public class ProdutoController {
         return Response.ok(produtoService.listar()).build();
     }
 
+
+    @GET
+    @Path("/produtodescricao")
+    @Produces(value = MediaType.APPLICATION_JSON)
+    public Response listarProdutosDescricao( ){
+        return Response.ok(produtoService.listarProdutoDescricao())
+                .build();
+    }
+
+
     @GET
     @Produces(value = MediaType.APPLICATION_JSON)
     @Path("/{id}")
